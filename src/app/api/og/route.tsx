@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../../firebaseConfig";
 import { cutString, getReadingTimeInMinutes } from "@/utils/utils";
-import { Image } from 'next/image';
+import Image from 'next/image';
 
 export async function GET(request: Request) {
   try {
