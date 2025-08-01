@@ -54,6 +54,14 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E69F970766F744768B12C2CA0EAA6EAC }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2E019242AF5349A4A09CBC2E8618AD15 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_89448182F1B54C2D8963AA5CFB5D7620 }}
+      - name: Set Azure App Settings (Stripe Key)
+        uses: azure/appservice-settings@v1
+        with:
+          app-name: 'omniplex-laksh1'
+          settings-json: |
+            {
+              "STRIPE_SECRET_KEY": "${{ secrets.STRIPE_SECRET_KEY }}"
+            }
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -62,4 +70,5 @@ jobs:
           app-name: 'omniplex-laksh1'
           slot-name: 'Production'
           package: .
+
           
