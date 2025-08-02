@@ -26,8 +26,8 @@ export async function POST(request: NextRequest) {
         },
       ],
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/cancel`,
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://omniplex-r7do.vercel.app/'}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://omniplex-r7do.vercel.app/'}/cancel`,
     });
 
     return NextResponse.json({ sessionId: session.id });
